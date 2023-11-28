@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../style/colors.dart';
+import '../../../controller/signController.dart';
 
 class WorkModeSwitch extends StatefulWidget {
   @override
@@ -8,7 +10,8 @@ class WorkModeSwitch extends StatefulWidget {
 }
 
 class _WorkModeSwitchState extends State<WorkModeSwitch> {
-  bool onWork = true; 
+  final ctrl = Get.find<SignController>();
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,10 +21,10 @@ class _WorkModeSwitchState extends State<WorkModeSwitch> {
           text: '上班',
           icon: Icons.work,
           side: 'left',
-          filled: onWork,
+          filled: ctrl.onWork.value,
           onPressed: () {
             setState(() {
-              onWork = true;  
+              ctrl.onWork.value = true;  
             });
           },
         ),
@@ -29,10 +32,10 @@ class _WorkModeSwitchState extends State<WorkModeSwitch> {
           text: '下班',
           icon: Icons.hotel,
           side: 'right',
-          filled: !onWork,
+          filled: !ctrl.onWork.value,
           onPressed: () {
             setState(() {
-              onWork = false;
+              ctrl.onWork.value = false;
             }); 
           },
         ),

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../style/colors.dart';
 import '../../components/bottomNav.dart';
 import './components/workModeSwitch.dart';
+import '../../controller/signController.dart';
 
 class SignPage extends StatelessWidget {
-  const SignPage({Key? key}) : super(key: key);
+  SignPage() {
+    final signController = SignController();
+    Get.put(signController);
+  }
 
   @override
   Widget build(BuildContext context) {
