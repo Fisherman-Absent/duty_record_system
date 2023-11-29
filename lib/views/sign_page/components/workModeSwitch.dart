@@ -65,7 +65,7 @@ class WorkButton extends StatelessWidget {
     return ElevatedButton( 
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        primary: filled ? workBtnOnColor : workBtnOffColor,
+        backgroundColor: filled ? workBtnOnColor : workBtnOffColor,
         side: BorderSide(
           color: workBtnBorderColor, 
         ),
