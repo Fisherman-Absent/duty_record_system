@@ -2,6 +2,6 @@ import 'package:get/get.dart';
 
 class SignController extends GetxController {
   final onWork = true.obs;
-  final workerID = ''.obs; 
+  final employeeId = ''.obs; 
   final name = ''.obs; 
 }
