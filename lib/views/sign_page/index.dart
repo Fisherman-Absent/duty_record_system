@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import '../../style/colors.dart';
 import '../../components/bottomNav.dart';
 import './components/workModeSwitch.dart';
+import './components/employeeIdInput.dart';
+import './components/nameInput.dart';
 import '../../controller/signController.dart';
 
 class SignPage extends StatelessWidget {
@@ -16,7 +18,7 @@ class SignPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Page"),
+        title: Text("簽到"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
@@ -31,14 +33,32 @@ class SignPage extends StatelessWidget {
 class SignBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(  
+    return Container(
+      margin: const EdgeInsets.only(
+        left: 40,
+        right: 40,
+      ),
+      child: Column(  
         children: [
           Expanded(
             flex: 20, 
             child: WorkModeSwitch(),
           ),
+          Expanded(
+            flex: 20, 
+            child: EmployeeIdInput(),
+          ),
+          Expanded(
+            flex: 20, 
+            child: NameInput(),
+          ),
+          Expanded(
+            flex: 70, 
+            child: Text("1"),
+          ),
         ],
-      );
+      )
+    );
   }
 }
 
