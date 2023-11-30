@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../style/colors.dart';
-import '../../../controller/signController.dart';
-
-import '../register_page/index.dart';
-
+import 'package:duty_record_system/views/employee_page/register_page/index.dart';
 
 class RegistBtn extends StatefulWidget {
-
   @override
   State<RegistBtn> createState() => _RegistBtnState();
 }

@@ -2,15 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../style/colors.dart';
-import '../../../controller/signController.dart';
+import 'package:duty_record_system/controller/sign_controller.dart';
 
-class EmployeeIdInput extends StatefulWidget {
+class NameInput extends StatefulWidget {
   @override
-  _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
+  _NameInputState createState() => _NameInputState(); 
 }
 
-class _EmployeeIdInputState extends State<EmployeeIdInput> {
+class _NameInputState extends State<NameInput> {
   final ctrl = Get.find<SignController>();
 
   @override
@@ -26,7 +25,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             ),
             SizedBox(width: 8), 
             Text(
-              "員工ID",
+              "姓名",
               style: TextStyle(
                 color: Colors.black,  
               ), 
@@ -39,7 +38,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             color: Color(0xFFC9C9C9),
           ), 
           onChanged: (value) {
-            ctrl.employeeId.value = value;
+            ctrl.name.value = value;
           },
         ),
       ]

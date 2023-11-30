@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../style/colors.dart';
-import '../../../../controller/registController.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/controller/regist_controller.dart';
 
-class EmployeeIdInput extends StatefulWidget {
+class PhoneNumberInput extends StatefulWidget {
   @override
-  _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
+  _PhoneNumberInputState createState() => _PhoneNumberInputState(); 
 }
 
-class _EmployeeIdInputState extends State<EmployeeIdInput> {
+class _PhoneNumberInputState extends State<PhoneNumberInput> {
   final ctrl = Get.find<RegistController>();
 
   @override
@@ -19,13 +19,13 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
         const Row(
           children: [
             Icon(
-              Icons.person,  
+              Icons.local_phone_rounded,  
               color: Colors.black,
               size: 18,
             ),
             SizedBox(width: 8), 
             Text(
-              "員工ID",
+              "電話號碼",
               style: TextStyle(
                 color: Colors.black,  
               ), 
@@ -47,7 +47,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             ctrl.employeeId.value = value;
           },
         ),
-        SizedBox(height: 20,),
+        SizedBox(height: 20), 
       ]
     );
   }

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../style/colors.dart';
-import '../../../../controller/registController.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/controller/regist_controller.dart';
 
-class NameInput extends StatefulWidget {
+class EmployeeIdInput extends StatefulWidget {
   @override
-  _NameInputState createState() => _NameInputState(); 
+  _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
 }
 
-class _NameInputState extends State<NameInput> {
+class _EmployeeIdInputState extends State<EmployeeIdInput> {
   final ctrl = Get.find<RegistController>();
 
   @override
@@ -25,7 +25,7 @@ class _NameInputState extends State<NameInput> {
             ),
             SizedBox(width: 8), 
             Text(
-              "員工姓名",
+              "員工ID",
               style: TextStyle(
                 color: Colors.black,  
               ), 
@@ -47,7 +47,7 @@ class _NameInputState extends State<NameInput> {
             ctrl.employeeId.value = value;
           },
         ),
-        SizedBox(height: 20), 
+        SizedBox(height: 20,),
       ]
     );
   }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../style/colors.dart';
-import '../../components/bottomNav.dart';
-
-import 'components/registBtn.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/components/bottom_nav.dart';
+import 'components/regist_btn.dart';
 
 class EmployeePage extends StatelessWidget {
   const EmployeePage({Key? key}) : super(key: key);
