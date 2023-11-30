@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../style/colors.dart';
 import '../../components/bottomNav.dart';
 
-import 'components/RegistBtn.dart';
+import 'components/registBtn.dart';
 
 class EmployeePage extends StatelessWidget {
   const EmployeePage({Key? key}) : super(key: key);

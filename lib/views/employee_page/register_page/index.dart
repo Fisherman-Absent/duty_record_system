@@ -7,7 +7,7 @@ import '../../../components/canScroll.dart';
 
 import 'components/employeeIdInput.dart';
 import 'components/nameInput.dart';
-import 'components/FaceRegist.dart';
+import 'components/faceRegist.dart';
 import 'components/phoneNumberInput.dart';
 
 
