@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../style/colors.dart';
+import '../../components/bottomNav.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -6,8 +10,13 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Setting Page"),
+        title: Text("設定"),
+        backgroundColor: appBarBGColor,
         centerTitle: true,
+      ),
+      body:Text("setting"),
+      bottomNavigationBar: BottomNavComponent(
+        selectedIndex: 3, 
       ),
     );
   }

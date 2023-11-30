@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../style/colors.dart';
+import '../../components/bottomNav.dart';
 
 class RecordPage extends StatelessWidget {
   const RecordPage({Key? key}) : super(key: key);
@@ -6,8 +10,13 @@ class RecordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Record Page"),
+        title: Text("點名紀錄"),
+        backgroundColor: appBarBGColor,
         centerTitle: true,
+      ),
+      body:Text("record"),
+      bottomNavigationBar: BottomNavComponent(
+        selectedIndex: 1, 
       ),
     );
   }
