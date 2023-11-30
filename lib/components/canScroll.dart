@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';  //加了這個打開鍵盤就可以滑了
+import 'package:flutter/material.dart';  
 
+
+
+//加了這個CanScroll(Widget)打開鍵盤就可以滑了
 class CanScroll extends StatefulWidget {
 
   final Widget input;
