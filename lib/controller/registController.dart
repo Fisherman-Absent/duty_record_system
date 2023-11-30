@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 
-class SignController extends GetxController {
-
-  final faceIsRegisted=false.obs;
+class RegistController extends GetxController {
   
+  final employeeId = ''.obs; 
+  final name = ''.obs; 
+  final faceIsRegisted=false.obs;
+
 }

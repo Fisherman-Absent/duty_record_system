@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/signController.dart';
+import '../../../../controller/registController.dart';
 
 class FaceRegist extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class FaceRegist extends StatefulWidget {
 }
 
 class _FaceRegistState extends State<FaceRegist> {
-  final ctrl = Get.find<SignController>();
+  final ctrl = Get.find<RegistController>();
 
   @override
   Widget build(BuildContext context) {

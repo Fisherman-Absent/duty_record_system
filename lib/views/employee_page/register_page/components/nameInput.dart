@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../style/colors.dart';
-import '../../../../controller/signController.dart';
+import '../../../../controller/registController.dart';
 
 class NameInput extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class NameInput extends StatefulWidget {
 }
 
 class _NameInputState extends State<NameInput> {
-  final ctrl = Get.find<SignController>();
+  final ctrl = Get.find<RegistController>();
 
   @override
   Widget build(BuildContext context) {

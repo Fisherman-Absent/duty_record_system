@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../style/colors.dart';
-import '../../../../controller/signController.dart';
+import '../../../../controller/registController.dart';
 
 class PhoneNumberInput extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class PhoneNumberInput extends StatefulWidget {
 }
 
 class _PhoneNumberInputState extends State<PhoneNumberInput> {
-  final ctrl = Get.find<SignController>();
+  final ctrl = Get.find<RegistController>();
 
   @override
   Widget build(BuildContext context) {
