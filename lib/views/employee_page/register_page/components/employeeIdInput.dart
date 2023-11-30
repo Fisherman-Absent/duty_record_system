@@ -47,6 +47,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             ctrl.employeeId.value = value;
           },
         ),
+        SizedBox(height: 20,),
       ]
     );
   }
