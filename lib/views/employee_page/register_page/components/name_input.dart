@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../style/colors.dart';
-import '../../../../controller/registController.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/controller/regist_controller.dart';
 
-class PhoneNumberInput extends StatefulWidget {
+class NameInput extends StatefulWidget {
   @override
-  _PhoneNumberInputState createState() => _PhoneNumberInputState(); 
+  _NameInputState createState() => _NameInputState(); 
 }
 
-class _PhoneNumberInputState extends State<PhoneNumberInput> {
+class _NameInputState extends State<NameInput> {
   final ctrl = Get.find<RegistController>();
 
   @override
@@ -19,13 +19,13 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
         const Row(
           children: [
             Icon(
-              Icons.local_phone_rounded,  
+              Icons.person,  
               color: Colors.black,
               size: 18,
             ),
             SizedBox(width: 8), 
             Text(
-              "電話號碼",
+              "員工姓名",
               style: TextStyle(
                 color: Colors.black,  
               ), 

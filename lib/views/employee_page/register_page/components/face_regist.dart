@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/registController.dart';
+import 'package:duty_record_system/controller/regist_controller.dart';
 
 class FaceRegist extends StatefulWidget {
   @override

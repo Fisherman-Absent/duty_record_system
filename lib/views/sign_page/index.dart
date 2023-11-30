@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../style/colors.dart';
-import '../../components/bottomNav.dart';
-import './components/workModeSwitch.dart';
-import './components/employeeIdInput.dart';
-import './components/nameInput.dart';
-import '../../controller/signController.dart';
+import 'package:duty_record_system/controller/sign_controller.dart';
+import 'package:duty_record_system/style/colors.dart';
+
+import 'package:duty_record_system/components/bottom_nav.dart';
+import './components/work_mode_switch.dart';
+import './components/employee_id_input.dart';
+import './components/name_input.dart';
 
 class SignPage extends StatelessWidget {
   SignPage() {
