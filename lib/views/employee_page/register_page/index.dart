@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../style/colors.dart';
-import '../../../controller/RegistController.dart';
-import '../../../components/canScroll.dart';
-
-import 'components/employeeIdInput.dart';
-import 'components/nameInput.dart';
-import 'components/faceRegist.dart';
-import 'components/phoneNumberInput.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/controller/regist_controller.dart';
+import 'package:duty_record_system/components/can_scroll.dart';
+import './components/employee_id_input.dart';
+import './components/name_input.dart';
+import './components/face_regist.dart';
+import './components/phone_number_input.dart';
 
 
 class RegisterPage extends StatelessWidget {

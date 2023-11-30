@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../style/colors.dart';
-import '../../../controller/signController.dart';
+import 'package:duty_record_system/style/colors.dart';
+import 'package:duty_record_system/controller/sign_controller.dart';
 
 class WorkModeSwitch extends StatefulWidget {
   @override
