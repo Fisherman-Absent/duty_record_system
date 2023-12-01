@@ -31,6 +31,12 @@ class _SettingListState extends State<SettingList> {
               leading: Icon(Icons.format_paint),
               title: Text('Enable custom theme'),
             ),
+            SettingsTile.navigation(
+              title: Text("檢查更新"),
+            ),
+            SettingsTile.navigation(
+              title: Text("關於本軟體"),
+            ),
           ],
         ),
       ],
