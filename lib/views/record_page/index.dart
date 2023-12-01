@@ -43,7 +43,7 @@ class RecordPage extends StatelessWidget {
         )
       ),
       bottomNavigationBar: BottomNavComponent(
-        selectedIndex: 2, 
+        selectedIndex: 1, 
       ),
     );
   }
