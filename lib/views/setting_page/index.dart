@@ -1,23 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:settings_ui/settings_ui.dart';
 import 'package:get/get.dart';
 
 import '../../style/colors.dart';
 import '../../components/bottom_nav.dart';
+import './components/settings_list.dart';
 
-class SettingPage extends StatelessWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class SettingPage extends StatefulWidget {
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  _SettingPageState createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
+  bool isSwitched = false;
+
+  @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
         title: Text("設定"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
-      body:Text("setting"),
-      bottomNavigationBar: BottomNavComponent(
-        selectedIndex: 3, 
+    body: Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: SafeArea(
+      child: SettingList(),
       ),
-    );
-  }
+    ),
+    bottomNavigationBar: BottomNavComponent(
+      selectedIndex: 3, 
+    ),
+  );
 }
+
+}
+
