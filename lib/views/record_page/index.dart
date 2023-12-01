@@ -24,26 +24,27 @@ class RecordPage extends StatelessWidget {
           children: [
             SizedBox(height: 20,),
             TextFormField(
-            decoration: InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
-              border : OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(10.0)
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+                border : OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10.0)
+                ),
+                fillColor: inputFillColor,
+                filled: true,
               ),
-              fillColor: inputFillColor,
-              filled: true,
+              onChanged: (value) {
+              
+              },
             ),
-            onChanged: (value) {
-            
-            },
-          ),
-          SizedBox(height: 20,),
-          RecordTable(),],
+            SizedBox(height: 20,),
+            RecordTable(),
+          ],
         )
       ),
       bottomNavigationBar: BottomNavComponent(
-        selectedIndex: 2, 
+        selectedIndex: 1, 
       ),
     );
   }
