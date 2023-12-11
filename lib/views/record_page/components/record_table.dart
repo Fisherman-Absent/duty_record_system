@@ -32,8 +32,7 @@ class _RecordTableState extends State<RecordTable> {
           for (var i=0;i<10;i++) 
           TableRow(
             children: <Widget>[
-              Expanded(
-                child: Container(
+                Container(
                   height: 60,
                   color: inputFillColor,
                   child: new Icon(
@@ -41,20 +40,13 @@ class _RecordTableState extends State<RecordTable> {
                     color: Colors.black,
                     size: 30,
                   ),
-                )
-              ),
-              Expanded(
-                child: Container(
+                ),
+                Container(
                   height: 60,
                   color: inputFillColor,
                   child: Center(child:new Text('645'),) ,
                 )
-              ),
-            //mainAxisAlignment: MainAxisAlignment.spaceAround,
-              
-              
-              // new Text('492410052'),
-            ],
+              ],
           )
         ]
       ),

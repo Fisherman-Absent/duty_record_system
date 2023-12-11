@@ -31,33 +31,22 @@ class _EmployeeTableState extends State<EmployeeTable> {
             // ),
             for (var i=0;i<10;i++) 
             TableRow(
-              
               children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 60,
-                        color: inputFillColor,
-                        child: new Icon(
-                          Icons.person,  
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 60,
-                        color: inputFillColor,
-                        child: Center(child:new Text('645'),) ,
-                      )
-                    ),
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    
-                    
-                    // new Text('492410052'),
-                  ],
-                
-              
+                Container(
+                  height: 60,
+                  color: inputFillColor,
+                  child: new Icon(
+                    Icons.person,  
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                ),
+                Container(
+                  height: 60,
+                  color: inputFillColor,
+                  child: Center(child:new Text('645'),) ,
+                )
+              ],
             )
           ]
         ),
