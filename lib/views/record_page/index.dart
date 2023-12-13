@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+
+
 
 import 'package:duty_record_system/style/colors.dart';
 import 'package:duty_record_system/components/bottom_nav.dart';
 import 'package:duty_record_system/components/can_scroll.dart';
+
+
 
 import './components/record_table.dart';
 
@@ -22,6 +27,21 @@ class RecordPage extends StatelessWidget {
       body:CanScroll(
         Column(
           children: [
+            ElevatedButton(
+              child: Text(
+                'Date Picker',
+                style: TextStyle(fontSize: 20.0, color: Colors.blue),
+              ),
+              onPressed: () async{
+              final result = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2020, 01),
+                  lastDate: DateTime(2100, 12));
+              
+              debugPrint(result.toString());
+            },
+            ),
             SizedBox(height: 20,),
             TextFormField(
               decoration: InputDecoration(

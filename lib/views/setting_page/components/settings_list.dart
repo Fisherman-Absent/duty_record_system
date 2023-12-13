@@ -23,13 +23,7 @@ class _SettingListState extends State<SettingList> {
             SettingsTile.navigation(
               leading: Icon(Icons.language),
               title: Text('Language'),
-              value: Text('English'),
-            ),
-            SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: true,
-              leading: Icon(Icons.format_paint),
-              title: Text('Enable custom theme'),
+              value: Text('繁體中文'),
             ),
             SettingsTile.navigation(
               title: Text("檢查更新"),
