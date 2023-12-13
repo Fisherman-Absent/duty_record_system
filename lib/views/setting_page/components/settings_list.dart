@@ -23,7 +23,7 @@ class _SettingListState extends State<SettingList> {
             SettingsTile.navigation(
               leading: Icon(Icons.language),
               title: Text('Language'),
-              value: Text('English'),
+              value: Text('繁體中文'),
             ),
             SettingsTile.switchTile(
               onToggle: (value) {},
