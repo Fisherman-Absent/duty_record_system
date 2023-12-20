@@ -41,6 +41,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+
   csslib:
     dependency: transitive
     description:
@@ -73,6 +74,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+
   fake_async:
     dependency: transitive
     description:
@@ -102,6 +104,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_adaptive_scaffold:
+    dependency: "direct main"
+    description:
+      name: flutter_adaptive_scaffold
+      sha256: "3e78be8b9c95b1c9832b2f8ec4a845adac205c4bb5e7bd3fb204b07990229167"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.7+1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -110,6 +120,19 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  flutter_localization:
+    dependency: "direct main"
+    description:
+      name: flutter_localization
+      sha256: a65ae241b865f2780f2ef624a4cdd019ca894d0b7df0a0b77190746ef0b9c8fa
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.14"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -128,6 +151,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.6"
+
   html:
     dependency: transitive
     description:
@@ -160,6 +184,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.2"
+
   lints:
     dependency: transitive
     description:
@@ -256,6 +281,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
+
   petitparser:
     dependency: transitive
     description:
@@ -264,6 +290,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.2"
+
   platform:
     dependency: transitive
     description:
@@ -280,6 +307,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.7"
+
   pref:
     dependency: "direct main"
     description:
@@ -288,6 +316,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.7.2"
+
   settings_ui:
     dependency: "direct main"
     description:
@@ -517,6 +546,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+
   win32_registry:
     dependency: transitive
     description:
@@ -525,6 +555,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.2"
+
   xdg_directories:
     dependency: transitive
     description:
@@ -533,6 +564,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
+
   xml:
     dependency: transitive
     description:
@@ -541,6 +573,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.5.0"
+
 sdks:
   dart: ">=3.2.0 <4.0.0"
   flutter: ">=3.16.0"

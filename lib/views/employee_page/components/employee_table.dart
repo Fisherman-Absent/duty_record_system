@@ -1,8 +1,13 @@
+import 'package:duty_record_system/views/employee_page/employee_info_page/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../style/colors.dart';
 import '../../../controller/regist_controller.dart';
+
+import 'package:duty_record_system/views/employee_page/register_page/index.dart';
+
+
 
 class EmployeeTable extends StatefulWidget {
   const EmployeeTable({super.key});
@@ -30,24 +35,57 @@ class _EmployeeTableState extends State<EmployeeTable> {
             //   ]
             // ),
             for (var i=0;i<10;i++) 
-            TableRow(
-              children: <Widget>[
-                Container(
-                  height: 60,
-                  color: inputFillColor,
-                  child: new Icon(
-                    Icons.person,  
-                    color: Colors.black,
-                    size: 30,
-                  ),
+            TableRow(children: [
+              Container(
+                height: 60,
+                color: inputFillColor,
+                child: new Icon(
+                  Icons.person,  
+                  color: Colors.green,
+                  size: 30,
                 ),
-                Container(
+              ),
+              TableRowInkWell(
+                child:Container(
+                  padding: EdgeInsets.only(left:20),
                   height: 60,
                   color: inputFillColor,
-                  child: Center(child:new Text('645'),) ,
-                )
-              ],
-            )
+                  child:Row(
+                    children:[
+                      Text(
+                        '645',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Text(
+                        '(',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Text(
+                        'T123456789',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Text(
+                        ')',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ) ,
+              // HERE IT IS...
+              
+                onTap: (){
+                  Navigator.push(context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>EmployeeInfoPage(),  
+                      transitionDuration: Duration(milliseconds: 0),
+                    )
+                  );
+                },
+                
+              ),
+     
+              
+            ]),
           ]
         ),
       );

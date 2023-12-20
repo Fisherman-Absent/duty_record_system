@@ -5,7 +5,7 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3),(){
+    Future.delayed(Duration(seconds: 1),(){
       Navigator.pushReplacementNamed(context, "/sign");  
     });
 

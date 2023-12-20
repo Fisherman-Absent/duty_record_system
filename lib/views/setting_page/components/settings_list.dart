@@ -17,6 +17,7 @@ class _SettingListState extends State<SettingList> {
   @override
   Widget build(BuildContext context) {
 
+
     // return UpgradeAlert(
     //   child: Scaffold(
     //     appBar: AppBar(title: Text('Upgrader Example')),
@@ -228,6 +229,7 @@ class _SettingListState extends State<SettingList> {
                   pref: 'content_show_audio',
                 )
               ],
+
             ),
           ),
           PrefButton(
