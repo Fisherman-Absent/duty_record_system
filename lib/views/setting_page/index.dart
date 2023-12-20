@@ -26,7 +26,7 @@ Widget build(BuildContext context) {
     body: Padding(
       padding: const EdgeInsets.only(top: 10),
       child: SafeArea(
-      child: SettingList(),
+        child: SettingList(),
       ),
     ),
     bottomNavigationBar: BottomNavComponent(
