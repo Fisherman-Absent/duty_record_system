@@ -7,4 +7,11 @@ class Employee {
   final String phoneNum;
 
   Employee({required this.name, required this.employeeID, required this.phoneNum});
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'employeeID': employeeID,
+      'phoneNum': phoneNum,
+    };
+  }
 }
