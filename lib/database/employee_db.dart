@@ -42,4 +42,13 @@ class EmployeeDB {
       );
     });
   }
+
+  static Future<void> addEmployee(Employee employee) async {
+    final Database db = await getDBConnect();
+    await db.insert(
+      'employees',
+      employee.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
 }
