@@ -43,6 +43,8 @@ dependencies:
   upgrader: ^8.4.0
   pref: ^2.7.2
   flutter_adaptive_scaffold: ^0.1.7+1
+  sqflite: ^2.3.0
+  path: ^1.8.3
 
 
 dev_dependencies:
