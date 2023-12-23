@@ -15,7 +15,6 @@ class Employee {
     };
   }
 }
-
 class EmployeeDB {
   static Future<Database> getDBConnect() async {
     String path = await getDatabasesPath();
@@ -44,11 +43,18 @@ class EmployeeDB {
   }
 
   static Future<void> addEmployee(Employee employee) async {
+      final Database db = await getDBConnect();
+      await db.insert(
+        'employees',
+        employee.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+  }
+
+  static Future<void> deleteTable() async{
     final Database db = await getDBConnect();
-    await db.insert(
-      'employees',
-      employee.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
+    await db.execute( 
+      "DROP TABLE employees",
     );
   }
 }
