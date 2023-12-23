@@ -15,3 +15,19 @@ class Employee {
     };
   }
 }
+
+class EmployeeDB {
+  static Future<Database> getDBConnect() async {
+    String path = await getDatabasesPath();
+    
+    return openDatabase(
+      join(path, 'fisherman.db'),
+      onCreate: (database, version) async {
+         await database.execute( 
+           "CREATE TABLE employees(name TEXT, employeeID TEXT, phoneNum TEXT)",
+      );
+     },
+     version: 1,
+    );
+  }
+}
