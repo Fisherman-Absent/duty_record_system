@@ -30,4 +30,16 @@ class EmployeeDB {
      version: 1,
     );
   }
+
+  static Future<List<Employee>> getEmployees() async {
+    final Database db = await getDBConnect();
+    final List<Map<String, dynamic>> maps = await db.query('employees');
+    return List.generate(maps.length, (i) {
+      return Employee(
+        name: maps[i]['name'],
+        employeeID: maps[i]['employeeID'],
+        phoneNum: maps[i]['phoneNum'],
+      );
+    });
+  }
 }
