@@ -26,6 +26,10 @@ class RegisterPage extends StatelessWidget {
   RegisterPage() {
     final registController = RegistController();
     Get.put(registController);
+    final ctrl = Get.find<RegistController>();
+    ctrl.employeeId.value = '';
+    ctrl.name.value = '';
+    ctrl.phoneNum.value = '';
   }
   
   @override
