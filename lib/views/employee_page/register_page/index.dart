@@ -11,7 +11,7 @@ import './components/phone_number_input.dart';
 
 
 class RegisterPage extends StatelessWidget {
-  RegisterPage() {
+  RegisterPage({super.key}) {
     final registController = RegistController();
     Get.put(registController);
   }
@@ -20,23 +20,23 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("註冊資料"),
+        title: const Text("註冊資料"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
       body:CanScroll(
         Container(
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         child: Column(
           
           children: [
-            EmployeeIdInput(),
-            NameInput(),
-            FaceRegist(),
-            PhoneNumberInput(),
-            SizedBox(height: 50,),
+            const EmployeeIdInput(),
+            const NameInput(),
+            const FaceRegist(),
+            const PhoneNumberInput(),
+            const SizedBox(height: 50,),
             ElevatedButton(
-              child: Text("註冊"),
+              child: const Text("註冊"),
               onPressed: (){},
             ),
           ]),

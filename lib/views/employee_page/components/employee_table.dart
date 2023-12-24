@@ -1,11 +1,8 @@
 import 'package:duty_record_system/views/employee_page/employee_info_page/index.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../style/colors.dart';
-import '../../../controller/regist_controller.dart';
 
-import 'package:duty_record_system/views/employee_page/register_page/index.dart';
 
 
 
@@ -39,7 +36,7 @@ class _EmployeeTableState extends State<EmployeeTable> {
               Container(
                 height: 60,
                 color: inputFillColor,
-                child: new Icon(
+                child: const Icon(
                   Icons.person,  
                   color: Colors.green,
                   size: 30,
@@ -47,10 +44,10 @@ class _EmployeeTableState extends State<EmployeeTable> {
               ),
               TableRowInkWell(
                 child:Container(
-                  padding: EdgeInsets.only(left:20),
+                  padding: const EdgeInsets.only(left:20),
                   height: 60,
                   color: inputFillColor,
-                  child:Row(
+                  child:const Row(
                     children:[
                       Text(
                         '645',
@@ -77,7 +74,7 @@ class _EmployeeTableState extends State<EmployeeTable> {
                   Navigator.push(context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>EmployeeInfoPage(),  
-                      transitionDuration: Duration(milliseconds: 0),
+                      transitionDuration: const Duration(milliseconds: 0),
                     )
                   );
                 },

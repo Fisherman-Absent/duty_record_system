@@ -7,7 +7,7 @@ import 'package:duty_record_system/components/can_scroll.dart';
 
 
 class EmployeeInfoPage extends StatelessWidget {
-  EmployeeInfoPage() {
+  EmployeeInfoPage({super.key}) {
     final registController = RegistController();
     Get.put(registController);
   }
@@ -16,20 +16,20 @@ class EmployeeInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("員工xxx的資料"),
+        title: const Text("員工xxx的資料"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
       body:CanScroll(
         Container(
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         child: Column(
           
           children: [
-            Text("test"),
-            SizedBox(height: 50,),
+            const Text("test"),
+            const SizedBox(height: 50,),
             ElevatedButton(
-              child: Text("註冊"),
+              child: const Text("註冊"),
               onPressed: (){},
             ),
           ]),

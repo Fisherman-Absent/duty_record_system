@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class CanScroll extends StatefulWidget {
 
   final Widget input;
-  CanScroll(this.input);
+  const CanScroll(this.input, {super.key});
+  @override
   _ScrollableState createState() => _ScrollableState();
 }
 

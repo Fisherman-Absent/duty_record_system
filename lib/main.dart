@@ -1,8 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:pref/pref.dart';
 import './routers/routers.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+
+import 'controller/theme_contorller.dart';
 
 import 'package:upgrader/upgrader.dart';
 
@@ -12,7 +16,7 @@ void main() async {
 
   final service = await PrefServiceShared.init(
     defaults: {
-      'start_page': 'posts',
+      'language': 'zh_TW',
       'ui_theme': 'light',
     },
   );
@@ -21,22 +25,31 @@ void main() async {
 
   runApp(
     PrefService(
+      service: service,
       child: 
         MaterialApp(
-          localizationsDelegates: [
+          theme: ThemeData(
+            brightness: Brightness.light,
+            /* light theme settings */
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            /* dark theme settings */
+          ),
+          themeMode: ThemeMode.light,
+          localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: [
-          const Locale('zh', 'TW'),
-          const Locale('en', 'US'),
+        supportedLocales: const [
+          Locale('zh', 'TW'),
+          Locale('en', 'US'),
         ],
         locale: const Locale('zh'),
           initialRoute: '/',
           routes: getRoutes(),
-        ),
-      service: service
+        )
       )
     ); 
 
