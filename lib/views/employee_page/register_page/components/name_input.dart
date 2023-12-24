@@ -44,7 +44,7 @@ class _NameInputState extends State<NameInput> {
             filled: true,
           ),
           onChanged: (value) {
-            ctrl.employeeId.value = value;
+            ctrl.name.value = value;
           },
         ),
         SizedBox(height: 20), 
