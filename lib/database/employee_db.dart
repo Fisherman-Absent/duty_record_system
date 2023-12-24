@@ -2,19 +2,21 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 class Employee {
+  late int id;
   final String name;
-  final String employeeID;
+  final String employeeId;
   final String phoneNum;
 
-  Employee({required this.name, required this.employeeID, required this.phoneNum});
+  Employee({required this.employeeId, required this.name, required this.phoneNum});
   Map<String, dynamic> toMap() {
     return {
+      'employeeId': employeeId,
       'name': name,
-      'employeeID': employeeID,
       'phoneNum': phoneNum,
     };
   }
 }
+
 class EmployeeDB {
   static Future<Database> getDBConnect() async {
     String path = await getDatabasesPath();
