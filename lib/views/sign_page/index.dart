@@ -10,6 +10,21 @@ import './components/employee_id_input.dart';
 import './components/name_input.dart';
 import './components/cameraScan.dart';
 
+import 'package:duty_record_system/database/checkin_db.dart';
+import 'package:duty_record_system/controller/event_bus.dart';
+
+
+Future<void> addCheckIn(bool onWork, String employeeId, String name,  String time) async {
+  final newCheckIn = CheckIn(
+    onWork : onWork,
+    employeeId: employeeId,
+    name: name,
+    time: time,
+  );
+  await CheckInDB.addCheckIn(newCheckIn);
+}
+
+
 class SignPage extends StatelessWidget {
   SignPage({super.key}) {
     final signController = SignController();
@@ -25,7 +40,7 @@ class SignPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: const SignBody(),
-      bottomNavigationBar: const BottomNavComponent(
+      bottomNavigationBar: BottomNavComponent(
         selectedIndex: 0,
       ),
     );
@@ -42,27 +57,40 @@ class SignBody extends StatelessWidget {
           left: 40,
           right: 40,
         ),
-        child: const Column(
+        child: Column(
           children: [
             Expanded(
-              flex: 20,
+              flex: 10,
               child: WorkModeSwitch(),
             ),
             Expanded(
-              flex: 20,
+              flex: 10,
               child: EmployeeIdInput(),
             ),
             Expanded(
-              flex: 20,
+              flex: 10,
               child: NameInput(),
             ),
             Expanded(
-              flex: 50,
+              flex: 40,
               child: CameraScan(),
             ),
-            Expanded(
-              flex: 20,
-              child: Sign_button()
+            ElevatedButton(
+              child: const Text("打卡"),
+              onPressed: () async {
+                final ctrl = Get.find<SignController>();
+                DateTime currentTime = DateTime.now();
+                String formattedTime = currentTime.toIso8601String();
+                CheckIn newCheckIn = CheckIn(
+                  onWork: ctrl.onWork.value,
+                  employeeId: ctrl.employeeId.value,
+                  name: ctrl.name.value,
+                  time: formattedTime,
+                );
+                await CheckInDB.addCheckIn(newCheckIn);
+                ctrl.employeeId.value = "";
+                ctrl.name.value = "";
+              },
             )
           ],
         ));

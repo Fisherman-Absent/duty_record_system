@@ -6,8 +6,8 @@ class CheckIn {
   late int id;
   final String name;
   final String employeeId;
-  final String onWork;
-  final DateTime time;
+  final bool onWork;
+  final String time;
 
   CheckIn({
     required this.onWork,
@@ -26,14 +26,14 @@ class CheckIn {
   }
 }
 
-class CheckDB {
+class CheckInDB {
   static Future<Database> getDBConnect() async {
     String path = await getDatabasesPath();
 
     return openDatabase(
       join(path, 'fisherman.db'),
       onCreate: (database, version) async {
-        await database.execute("CREATE TABLE checkin(id INTEGER PRIMARY KEY AUTOINCREMENT, onWork TEXT, employeeId TEXT, name TEXT, time date)");
+        await database.execute("CREATE TABLE checkIn(id INTEGER PRIMARY KEY AUTOINCREMENT, onWork INTEGER, employeeId TEXT, name TEXT, time Text)");
       },
       version: 1,
     );
@@ -42,14 +42,14 @@ class CheckDB {
   static Future<List<CheckIn>> getCheckIn(String keyword) async {
     final Database db = await getDBConnect();
     final List<Map<String, dynamic>> maps = await db.query(
-      'checkin',
+      'checkIn',
       where: 'name LIKE ?',
       whereArgs: ['$keyword%'],
     );
 
-    List<CheckIn> checkin = [];
+    List<CheckIn> checkIn = [];
     for (var row in maps) {
-      checkin.add(
+      checkIn.add(
           CheckIn(
               onWork: row['onWork'],
               employeeId: row['employeeId'],
@@ -57,16 +57,16 @@ class CheckDB {
               time: row['time']
           )
       );
-      checkin.last.id = row['id'];
+      checkIn.last.id = row['id'];
     }
-    return checkin;
+    return checkIn;
   }
 
-  static Future<void> addCheckIn(CheckIn checkin) async {
+  static Future<void> addCheckIn(CheckIn checkIn) async {
     final Database db = await getDBConnect();
     await db.insert(
-      'checkin',
-      checkin.toMap(),
+      'checkIn',
+      checkIn.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
@@ -74,7 +74,7 @@ class CheckDB {
   static Future<void> deleteCheckIn(int id) async {
     final Database db = await getDBConnect();
     await db.delete(
-      'checkin',
+      'checkIn',
       where: "id = ?",
       whereArgs: [id],
     );
@@ -83,7 +83,7 @@ class CheckDB {
   static Future<void> deleteTable() async{
     final Database db = await getDBConnect();
     await db.execute(
-      "DROP TABLE checkin",
+      "DROP TABLE checkIn",
     );
   }
 }

@@ -32,15 +32,16 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             )
           ],
         ),
-        CupertinoTextField( 
+        Obx(() => CupertinoTextField(
+          controller: TextEditingController(text: ctrl.employeeId.value),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0), 
+            borderRadius: BorderRadius.circular(10.0),
             color: Color(0xFFC9C9C9),
-          ), 
+          ),
           onChanged: (value) {
             ctrl.employeeId.value = value;
           },
-        ),
+        )),
       ]
     );
   }

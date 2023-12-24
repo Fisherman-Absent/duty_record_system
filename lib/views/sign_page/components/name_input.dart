@@ -32,15 +32,16 @@ class _NameInputState extends State<NameInput> {
             )
           ],
         ),
-        CupertinoTextField( 
+        Obx(() => CupertinoTextField(
+          controller: TextEditingController(text: ctrl.name.value),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0), 
+            borderRadius: BorderRadius.circular(10.0),
             color: Color(0xFFC9C9C9),
-          ), 
+          ),
           onChanged: (value) {
             ctrl.name.value = value;
           },
-        ),
+        )),
       ]
     );
   }
