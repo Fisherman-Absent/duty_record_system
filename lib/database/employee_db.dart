@@ -32,16 +32,26 @@ class EmployeeDB {
     );
   }
 
-  static Future<List<Employee>> getEmployees() async {
+  static Future<List<Employee>> getEmployees(String keyword) async {
     final Database db = await getDBConnect();
-    final List<Map<String, dynamic>> maps = await db.query('employees');
-    return List.generate(maps.length, (i) {
-      return Employee(
-        name: maps[i]['name'],
-        employeeID: maps[i]['employeeID'],
-        phoneNum: maps[i]['phoneNum'],
+    final List<Map<String, dynamic>> maps = await db.query(
+      'employees', 
+      where: 'name LIKE ?',
+      whereArgs: ['$keyword%'],
+    );
+
+    List<Employee> employees = []; 
+    for (var row in maps) {
+      employees.add(
+        Employee(
+          employeeId: row['employeeId'],
+          name: row['name'],
+          phoneNum: row['phoneNum']
+        )
       );
-    });
+      employees.last.id = row['id'];
+    }
+    return employees;
   }
 
   static Future<void> addEmployee(Employee employee) async {
