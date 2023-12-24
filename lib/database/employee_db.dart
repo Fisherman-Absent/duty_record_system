@@ -63,6 +63,15 @@ class EmployeeDB {
       );
   }
 
+  static Future<void> deleteEmployee(int id) async {
+    final Database db = await getDBConnect();
+    await db.delete(
+      'employees',
+      where: "id = ?",
+      whereArgs: [id],
+    );
+  }
+
   static Future<void> deleteTable() async{
     final Database db = await getDBConnect();
     await db.execute( 
