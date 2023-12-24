@@ -4,5 +4,6 @@ final EventBus eventBus = EventBus();
 
 class DBEvent {
   String eventName;
-  DBEvent(this.eventName);
+  String keyword;
+  DBEvent(this.eventName, this.keyword);
 }
