@@ -25,7 +25,7 @@ class EmployeeDB {
       join(path, 'fisherman.db'),
       onCreate: (database, version) async {
          await database.execute( 
-           "CREATE TABLE employees(name TEXT, employeeID TEXT, phoneNum TEXT)",
+           "CREATE TABLE employees(id INTEGER PRIMARY KEY AUTOINCREMENT, employeeId TEXT, name TEXT, phoneNum TEXT)",
       );
      },
      version: 1,
