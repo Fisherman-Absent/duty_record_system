@@ -48,7 +48,7 @@ class SignPage extends StatelessWidget {
 }
 
 class SignBody extends StatelessWidget {
-  const SignBody({super.key});
+  const SignBody({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class SignBody extends StatelessWidget {
                 );
                 await CheckInDB.addCheckIn(newCheckIn);
                 ctrl.employeeId.value = "";
-                ctrl.name.value = "";
+                ctrl.name.value ="";
               },
             )
           ],
