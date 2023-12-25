@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -31,7 +32,7 @@ class CheckInDB {
     String path = await getDatabasesPath();
 
     return openDatabase(
-      join(path, 'fisherman.db'),
+      join(path, 'fisherman_2.db'),
       onCreate: (database, version) async {
         await database.execute("CREATE TABLE checkIn(id INTEGER PRIMARY KEY AUTOINCREMENT, onWork INTEGER, employeeId TEXT, name TEXT, time Text)");
       },
@@ -39,26 +40,75 @@ class CheckInDB {
     );
   }
 
-  static Future<List<CheckIn>> getCheckIn(String keyword) async {
+  static Future<List<CheckIn>> getCheckIn(String keyword_Name, String keyword_date) async {
     final Database db = await getDBConnect();
-    final List<Map<String, dynamic>> maps = await db.query(
+    final List<Map<String, dynamic>> maps_time = await db.query(
       'checkIn',
-      where: 'name LIKE ?',
-      whereArgs: ['$keyword%'],
+      // where: 'time LIKE ?',
+      where: 'name LIKE ? AND time LIKE ?',
+      whereArgs: ['$keyword_Name%', '$keyword_date%'],
+      // whereArgs: ['$keyword_date%'],
+    );
+
+    final List<Map<String, dynamic>> maps_date = await db.query(
+      'checkIn',
+      where: 'time LIKE ?',
+      // where: 'name LIKE ? AND time LIKE ?',
+      // whereArgs: ['$keyword_Name%', '$keyword_date%'],
+      whereArgs: ['$keyword_date%'],
     );
 
     List<CheckIn> checkIn = [];
-    for (var row in maps) {
+    // print("*********************");
+    // print("checkin_db.dart-1");
+    // print(maps.length);
+    // print(maps);
+    // print("*********************");
+    if(keyword_Name == keyword_date){
+      for (var row in maps_time) {
       checkIn.add(
           CheckIn(
-              onWork: row['onWork'],
+              // onWork: row['onWork'],
+              onWork: true,
               employeeId: row['employeeId'],
               name: row['name'],
               time: row['time']
           )
       );
       checkIn.last.id = row['id'];
+      }
+    }else if(keyword_date == ''){
+      for (var row in maps_time) {
+      checkIn.add(
+          CheckIn(
+              // onWork: row['onWork'],
+              onWork: true,
+              employeeId: row['employeeId'],
+              name: row['name'],
+              time: row['time']
+          )
+      );
+      checkIn.last.id = row['id'];
+      }
+    }else{
+      for (var row in maps_time) {
+      checkIn.add(
+          CheckIn(
+              // onWork: row['onWork'],
+              onWork: true,
+              employeeId: row['employeeId'],
+              name: row['name'],
+              time: row['time']
+          )
+      );
+      checkIn.last.id = row['id'];
+      } 
     }
+      
+    // print("*********************");
+    // print("checkin_db.dart-2");
+    // print(checkIn);
+    // print("*********************");
     return checkIn;
   }
 
