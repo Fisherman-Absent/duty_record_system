@@ -83,7 +83,7 @@ class _SettingListState extends State<SettingList> {
           const PrefTitle(title: Text('Personalization')),
           const PrefDropdown<String>(
             autofocus: true,
-            title: Text('語言'),
+            title: Row(children: [const Icon(Icons.language),Text('語言')],),
             pref: 'language',
             items: [
               DropdownMenuItem(value: 'zh_TW', child: Text("繁體中文")),
