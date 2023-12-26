@@ -14,7 +14,7 @@ class CameraScan extends StatefulWidget {
 
 class CameraScanState extends State<CameraScan> {
   late CameraController _controller;
-  Future<void>? _initializeControllerFuture;
+  late Future<void> _initializeControllerFuture;
 
   @override
   void initState() {
@@ -29,11 +29,13 @@ class CameraScanState extends State<CameraScan> {
       _controller = CameraController(
         firstCamera,
         ResolutionPreset.medium,
-        imageFormatGroup: ImageFormatGroup.yuv420,
       );
 
       // 初始化相機控制器
       _initializeControllerFuture = _controller.initialize();
+      setState(() {
+        
+      });
     });
   }
 
