@@ -11,10 +11,10 @@ import 'package:pref/pref.dart';
 
 Map<String, WidgetBuilder> getRoutes() {
   return {
-    '/': (context) => const StartPage(),
+    '/': (context) => StartPage(),
     '/sign': (context) => SignPage(),
-    '/record': (context) => const RecordPage(),
-    '/employee': (context) => const EmployeePage(),
+    '/record': (context) => RecordPage(),
+    '/employee': (context) => EmployeePage(),
     '/setting': (context) =>  SettingPage(),
   }; 
 }

@@ -24,7 +24,7 @@ void handleNavTap(int index, BuildContext context) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const RecordPage(),  
+        pageBuilder: (context, animation, secondaryAnimation) => RecordPage(),  
         transitionDuration: const Duration(milliseconds: 0),
       ),  
     );
@@ -34,7 +34,7 @@ void handleNavTap(int index, BuildContext context) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const EmployeePage(),  
+        pageBuilder: (context, animation, secondaryAnimation) => EmployeePage(),  
         transitionDuration: const Duration(milliseconds: 0),
       ),  
     );

@@ -1,7 +1,9 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
 
 
@@ -25,13 +27,11 @@ class _RecordPageState extends State<RecordPage> {
   final firstDate = DateTime(2020, 01);
   final lastDate  = DateTime(2030, 12);
 
-class RecordPage extends StatelessWidget {
-  const RecordPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("點名紀錄"),
+        title: Text("點名紀錄"),
         backgroundColor: appBarBGColor,
         centerTitle: true, 
       ),
@@ -75,7 +75,7 @@ class RecordPage extends StatelessWidget {
         )
         )
       ),
-      bottomNavigationBar: const BottomNavComponent(
+      bottomNavigationBar: BottomNavComponent(
         selectedIndex: 1, 
       ),
     );
