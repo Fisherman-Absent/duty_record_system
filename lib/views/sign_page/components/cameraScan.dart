@@ -23,7 +23,7 @@ class CameraScanState extends State<CameraScan> {
     // 初始化相機
     WidgetsFlutterBinding.ensureInitialized();
     availableCameras().then((cameras) {
-      CameraDescription firstCamera = cameras.first;
+      CameraDescription firstCamera = cameras[1];
 
       // 創建相機控制器
       _controller = CameraController(
@@ -49,9 +49,6 @@ class CameraScanState extends State<CameraScan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('相機範例'),
-      ),
       body: Center(
         child: FutureBuilder(
           future: _initializeControllerFuture,

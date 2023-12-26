@@ -1,3 +1,4 @@
+import 'package:duty_record_system/components/can_scroll.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,8 @@ import './components/cameraScan.dart';
 
 import 'package:duty_record_system/database/checkin_db.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 Future<void> addCheckIn(int onWork, String employeeId, String name,  String time) async {
@@ -52,7 +55,7 @@ class SignBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return CanScroll(Container(
         margin: const EdgeInsets.only(
           left: 40,
           right: 40,
@@ -60,39 +63,56 @@ class SignBody extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 10,
+              flex: 5,
               child: WorkModeSwitch(),
             ),
             Expanded(
-              flex: 10,
+              flex: 5,
               child: EmployeeIdInput(),
             ),
             Expanded(
-              flex: 10,
+              flex: 5,
               child: NameInput(),
             ),
             Expanded(
-              flex: 40,
+              flex: 20,
               child: CameraScan(),
             ),
+            
+            
+            
             ElevatedButton(
               child: const Text("打卡"),
               onPressed: () async {
                 final ctrl = Get.find<SignController>();
 
                 String formattedTime = DateTime.now().toIso8601String();
-                CheckIn newCheckIn = CheckIn(
-                  onWork: ctrl.onWork.value? 1 : 0,
-                  employeeId: ctrl.employeeId.value,
-                  name: ctrl.name.value,
-                  time: formattedTime,
-                );
-                await CheckInDB.addCheckIn(newCheckIn);
-                ctrl.employeeId.value = "";
-                ctrl.name.value ="";
+                if(ctrl.employeeId.value==""||ctrl.name.value==""){
+                  debugPrint("no value");
+                  Fluttertoast.showToast(
+                    msg: "姓名員編不可留空",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    backgroundColor: appBarBGColor,
+                    textColor: Colors.black,
+                    fontSize: 16.0
+                  );
+                }else{
+                  
+                  CheckIn newCheckIn = CheckIn(
+                    onWork: ctrl.onWork.value? 1 : 0,
+                    employeeId: ctrl.employeeId.value,
+                    name: ctrl.name.value,
+                    time: formattedTime,
+                  );
+                  await CheckInDB.addCheckIn(newCheckIn);
+                  ctrl.employeeId.value = "";
+                  ctrl.name.value ="";
+                }
               },
+                
             )
           ],
-        ));
+        )));
   }
 }
