@@ -52,18 +52,20 @@ class CameraScanState extends State<CameraScan> {
       appBar: AppBar(
         title: Text('相機範例'),
       ),
-      body: FutureBuilder(
-        future: _initializeControllerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            // 如果初始化完成，顯示相機預覽
-            return CameraPreview(_controller);
-          } else {
-            // 如果尚未完成，顯示載入中的訊息
-            return Center(child: CircularProgressIndicator());
-          }
-        },
-      ),
+      body: Center(
+        child: FutureBuilder(
+          future: _initializeControllerFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              // 如果初始化完成，顯示相機預覽
+              return CameraPreview(_controller);
+            } else {
+              // 如果尚未完成，顯示載入中的訊息
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
+      )
     );
   }
 }
