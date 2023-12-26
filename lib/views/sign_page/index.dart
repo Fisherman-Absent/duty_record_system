@@ -12,9 +12,11 @@ import './components/name_input.dart';
 import './components/cameraScan.dart';
 
 import 'package:duty_record_system/database/checkin_db.dart';
+import 'package:duty_record_system/database/employee_db.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
+
 
 
 Future<void> addCheckIn(int onWork, String employeeId, String name,  String time) async {
@@ -74,31 +76,39 @@ class SignBody extends StatelessWidget {
               flex: 5,
               child: NameInput(),
             ),
-            Expanded(
-              flex: 20,
-              child: CameraScan(),
-            ),
-            
-            
-            
+            //Expanded(
+              //flex: 20,
+             // child: CameraScan(),
+            //),
             ElevatedButton(
               child: const Text("打卡"),
               onPressed: () async {
                 final ctrl = Get.find<SignController>();
-
                 String formattedTime = DateTime.now().toIso8601String();
-                if(ctrl.employeeId.value==""||ctrl.name.value==""){
+                EmployeeInfo employeeInfo = await EmployeeDB.isEmployeeIdExists(ctrl.employeeId.value);
+                if(ctrl.employeeId.value==""){
                   debugPrint("no value");
                   Fluttertoast.showToast(
-                    msg: "姓名員編不可留空",
+                    msg: "員工ID不可留空",
                     toastLength: Toast.LENGTH_SHORT,
                     gravity: ToastGravity.CENTER,
                     backgroundColor: appBarBGColor,
                     textColor: Colors.black,
                     fontSize: 16.0
                   );
-                }else{
-                  
+                }
+                else if(! employeeInfo.exists){
+                  Fluttertoast.showToast(
+                      msg: "員工ID錯誤!!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: appBarBGColor,
+                      textColor: Colors.black,
+                      fontSize: 16.0
+                  );
+                }
+                else{
+                  ctrl.name.value = employeeInfo.name??'';
                   CheckIn newCheckIn = CheckIn(
                     onWork: ctrl.onWork.value? 1 : 0,
                     employeeId: ctrl.employeeId.value,
