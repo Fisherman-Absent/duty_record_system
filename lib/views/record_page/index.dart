@@ -40,17 +40,6 @@ class _RecordPageState extends State<RecordPage> {
         margin: EdgeInsets.only(left: 10, right: 10),
         child: CanScroll(Column(
           children: [
-            // ElevatedButton(
-            //   child: Text(
-            //     '$selecteDate'.split(' ')[0],
-            //     style: TextStyle(fontSize: 20.0, color: Color.fromARGB(255, 235, 129, 9)),
-            //   ),
-            //   onPressed:() => _openDatePicker(context),
-
-            //   // debugPrint(result.toString());
-            // // },
-            // ),
-
             const SizedBox(height: 20,),
 
             TextFormField(
@@ -77,9 +66,6 @@ class _RecordPageState extends State<RecordPage> {
                 style: TextStyle(fontSize: 20.0, color: Color.fromARGB(255, 235, 129, 9)),
               ),
               onPressed:() => _openDatePicker(context),
-
-              // debugPrint(result.toString());
-            // },
             ),
 
             const SizedBox(height: 20,),
@@ -103,7 +89,6 @@ class _RecordPageState extends State<RecordPage> {
       lastDate: lastDate
     );
 
-    // print('selecteDate $selecteDate');
     if(date != null){   // no change date
       setState(() {
         selecteDate = date;
@@ -113,9 +98,5 @@ class _RecordPageState extends State<RecordPage> {
   
     eventBus.fire(DBEvent('Reload Table_111', "",'$selecteDate'.split(' ')[0]) );
 
-
-    print('Date $date');
-    print('$selecteDate'.split(' ')[0]);
-    // print('selecteDate $selecteDate');    
   }   
 }
