@@ -4,11 +4,14 @@ import 'package:get/get.dart';
 import 'package:duty_record_system/style/colors.dart';
 import 'package:duty_record_system/controller/regist_controller.dart';
 
+
+
 class EmployeeIdInput extends StatefulWidget {
   const EmployeeIdInput({super.key});
 
   @override
   _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
+  
 }
 
 class _EmployeeIdInputState extends State<EmployeeIdInput> {

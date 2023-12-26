@@ -46,7 +46,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
             filled: true,
           ),
           onChanged: (value) {
-            ctrl.employeeId.value = value;
+            ctrl.phoneNum.value = value;
           },
         ),
         const SizedBox(height: 20), 

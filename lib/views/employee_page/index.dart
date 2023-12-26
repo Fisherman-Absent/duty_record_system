@@ -6,6 +6,7 @@ import './components/regist_btn.dart';
 import './components/employee_table.dart';
 
 import 'package:duty_record_system/components/can_scroll.dart';
+import 'package:duty_record_system/controller/event_bus.dart';
 
 class EmployeePage extends StatelessWidget {
   const EmployeePage({super.key});
@@ -17,28 +18,32 @@ class EmployeePage extends StatelessWidget {
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
-      body:CanScroll(Column(
-        children: [
-          const SizedBox(height: 20,),
-          TextFormField(
-          decoration: InputDecoration(
-            isDense: true,
-            contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
-            border : OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(10.0)
-            ),
-            fillColor: inputFillColor,
-            filled: true,
+
+      body:Container(
+          margin: EdgeInsets.only(left: 10, right: 10),
+          child: CanScroll(Column(
+            children: [
+              SizedBox(height: 20,),
+              TextFormField(
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+                  border : OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10.0)
+                  ),
+                  fillColor: inputFillColor,
+                  filled: true,
+                ),
+                onChanged: (value) {
+                  eventBus.fire(DBEvent('Reload Table', value));
+                },
+              ),
+              SizedBox(height: 20,),
+              EmployeeTable(),
+            ],
           ),
-          onChanged: (value) {
-            
-          },
-        ),
-        const SizedBox(height: 20,),
-        const EmployeeTable(),],
-      )
-        
+        )
       ),
       floatingActionButton: const RegistBtn(),
       bottomNavigationBar: const BottomNavComponent(
