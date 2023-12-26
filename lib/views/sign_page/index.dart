@@ -14,7 +14,7 @@ import 'package:duty_record_system/database/checkin_db.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
 
 
-Future<void> addCheckIn(bool onWork, String employeeId, String name,  String time) async {
+Future<void> addCheckIn(int onWork, String employeeId, String name,  String time) async {
   final newCheckIn = CheckIn(
     onWork : onWork,
     employeeId: employeeId,
@@ -79,10 +79,10 @@ class SignBody extends StatelessWidget {
               child: const Text("打卡"),
               onPressed: () async {
                 final ctrl = Get.find<SignController>();
-                DateTime currentTime = DateTime.now();
-                String formattedTime = currentTime.toIso8601String();
+
+                String formattedTime = DateTime.now().toIso8601String();
                 CheckIn newCheckIn = CheckIn(
-                  onWork: ctrl.onWork.value,
+                  onWork: ctrl.onWork.value? 1 : 0,
                   employeeId: ctrl.employeeId.value,
                   name: ctrl.name.value,
                   time: formattedTime,

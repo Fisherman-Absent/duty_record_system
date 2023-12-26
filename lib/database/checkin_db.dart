@@ -7,7 +7,7 @@ class CheckIn {
   late int id;
   final String name;
   final String employeeId;
-  final bool onWork;
+  final int onWork;
   final String time;
 
   CheckIn({
@@ -68,8 +68,7 @@ class CheckInDB {
       for (var row in maps_time) {
       checkIn.add(
           CheckIn(
-              // onWork: row['onWork'],
-              onWork: true,
+              onWork: row['onWork'],
               employeeId: row['employeeId'],
               name: row['name'],
               time: row['time']
@@ -81,8 +80,7 @@ class CheckInDB {
       for (var row in maps_time) {
       checkIn.add(
           CheckIn(
-              // onWork: row['onWork'],
-              onWork: true,
+              onWork: row['onWork'],
               employeeId: row['employeeId'],
               name: row['name'],
               time: row['time']
@@ -94,8 +92,7 @@ class CheckInDB {
       for (var row in maps_time) {
       checkIn.add(
           CheckIn(
-              // onWork: row['onWork'],
-              onWork: true,
+              onWork: row['onWork'],
               employeeId: row['employeeId'],
               name: row['name'],
               time: row['time']

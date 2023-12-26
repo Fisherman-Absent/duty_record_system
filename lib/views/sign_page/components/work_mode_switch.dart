@@ -24,7 +24,7 @@ class _WorkModeSwitchState extends State<WorkModeSwitch> {
           filled: ctrl.onWork.value,
           onPressed: () {
             setState(() {
-              ctrl.onWork.value = true;  
+              ctrl.onWork.value = true;
             });
           },
         ),
