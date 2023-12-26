@@ -8,6 +8,22 @@ import 'package:duty_record_system/components/bottom_nav.dart';
 import './components/work_mode_switch.dart';
 import './components/employee_id_input.dart';
 import './components/name_input.dart';
+import './components/cameraScan.dart';
+
+import 'package:duty_record_system/database/checkin_db.dart';
+import 'package:duty_record_system/controller/event_bus.dart';
+
+
+Future<void> addCheckIn(int onWork, String employeeId, String name,  String time) async {
+  final newCheckIn = CheckIn(
+    onWork : onWork,
+    employeeId: employeeId,
+    name: name,
+    time: time,
+  );
+  await CheckInDB.addCheckIn(newCheckIn);
+}
+
 
 class SignPage extends StatelessWidget {
   SignPage({super.key}) {
@@ -23,45 +39,60 @@ class SignPage extends StatelessWidget {
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
-      body:const SignBody(),
-      bottomNavigationBar: const BottomNavComponent(
-        selectedIndex: 0, 
+      body: const SignBody(),
+      bottomNavigationBar: BottomNavComponent(
+        selectedIndex: 0,
       ),
     );
   }
 }
 
 class SignBody extends StatelessWidget {
-  const SignBody({super.key});
+  const SignBody({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        left: 40,
-        right: 40,
-      ),
-      child: const Column(  
-        children: [
-          Expanded(
-            flex: 20, 
-            child: WorkModeSwitch(),
-          ),
-          Expanded(
-            flex: 20, 
-            child: EmployeeIdInput(),
-          ),
-          Expanded(
-            flex: 20, 
-            child: NameInput(),
-          ),
-          Expanded(
-            flex: 70, 
-            child: Text("1"),
-          ),
-        ],
-      )
-    );
+        margin: const EdgeInsets.only(
+          left: 40,
+          right: 40,
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 10,
+              child: WorkModeSwitch(),
+            ),
+            Expanded(
+              flex: 10,
+              child: EmployeeIdInput(),
+            ),
+            Expanded(
+              flex: 10,
+              child: NameInput(),
+            ),
+            Expanded(
+              flex: 40,
+              child: CameraScan(),
+            ),
+            ElevatedButton(
+              child: const Text("打卡"),
+              onPressed: () async {
+                final ctrl = Get.find<SignController>();
+
+                String formattedTime = DateTime.now().toIso8601String();
+                CheckIn newCheckIn = CheckIn(
+                  onWork: ctrl.onWork.value? 1 : 0,
+                  employeeId: ctrl.employeeId.value,
+                  name: ctrl.name.value,
+                  time: formattedTime,
+                );
+                await CheckInDB.addCheckIn(newCheckIn);
+                ctrl.employeeId.value = "";
+                ctrl.name.value ="";
+              },
+            )
+          ],
+        ));
   }
 }
-

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 
@@ -10,7 +12,18 @@ import 'package:duty_record_system/components/can_scroll.dart';
 
 
 import './components/record_table.dart';
+import 'package:duty_record_system/controller/event_record.dart';
 
+class RecordPage extends StatefulWidget {
+  @override
+  _RecordPageState createState() => _RecordPageState(); 
+}
+
+class _RecordPageState extends State<RecordPage> {
+  DateTime selecteDate = DateTime.now();
+
+  final firstDate = DateTime(2020, 01);
+  final lastDate  = DateTime(2030, 12);
 
 class RecordPage extends StatelessWidget {
   const RecordPage({super.key});
@@ -20,45 +33,46 @@ class RecordPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("點名紀錄"),
         backgroundColor: appBarBGColor,
-        centerTitle: true,
+        centerTitle: true, 
       ),
-      body:CanScroll(
-        Column(
+  
+      body:Container(
+        margin: EdgeInsets.only(left: 10, right: 10),
+        child: CanScroll(Column(
           children: [
-            ElevatedButton(
-              child: const Text(
-                'Date Picker',
-                style: TextStyle(fontSize: 20.0, color: Colors.blue),
-              ),
-              onPressed: () async{
-              final result = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2020, 01),
-                  lastDate: DateTime(2100, 12));
-              
-              debugPrint(result.toString());
-            },
-            ),
             const SizedBox(height: 20,),
+
             TextFormField(
-              decoration: InputDecoration(
-                isDense: true,
-                contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
-                border : OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(10.0)
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+                  border : OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10.0)
+                  ),
+                  fillColor: inputFillColor,
+                  filled: true,
                 ),
-                fillColor: inputFillColor,
-                filled: true,
+                onChanged: (value) {
+                  eventBus.fire(DBEvent('Reload Table_111', value, ""));
+                },
               ),
-              onChanged: (value) {
-              
-              },
-            ),
+            
             const SizedBox(height: 20,),
-            const RecordTable(),
-          ],
+
+            ElevatedButton(
+              child: Text(
+                '$selecteDate'.split(' ')[0],
+                style: TextStyle(fontSize: 20.0, color: Color.fromARGB(255, 235, 129, 9)),
+              ),
+              onPressed:() => _openDatePicker(context),
+            ),
+
+            const SizedBox(height: 20,),
+
+            RecordTable(), // 資料庫串接
+          ]
+        )
         )
       ),
       bottomNavigationBar: const BottomNavComponent(
@@ -66,4 +80,23 @@ class RecordPage extends StatelessWidget {
       ),
     );
   }
+
+  _openDatePicker(BuildContext context) async {
+    final DateTime? date =  await showDatePicker(
+      context: context, 
+      initialDate: selecteDate,
+      firstDate: firstDate, 
+      lastDate: lastDate
+    );
+
+    if(date != null){   // no change date
+      setState(() {
+        selecteDate = date;
+      });  
+    }
+
+  
+    eventBus.fire(DBEvent('Reload Table_111', "",'$selecteDate'.split(' ')[0]) );
+
+  }   
 }
