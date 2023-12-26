@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:duty_record_system/controller/regist_controller.dart';
 
 class FaceRegist extends StatefulWidget {
+  const FaceRegist({super.key});
+
   @override
   _FaceRegistState createState() => _FaceRegistState(); 
 }
@@ -33,20 +35,21 @@ class _FaceRegistState extends State<FaceRegist> {
         ),
         Row(
           children: [
-            Text('狀態:'), 
+            const Text('狀態:'), 
             Obx((){
-              if(ctrl.faceIsRegisted.isTrue)
-                return Text("已註冊");
-              else 
-                return Text("未註冊");}
+              if(ctrl.faceIsRegisted.isTrue) {
+                return const Text("已註冊");
+              } else {
+                return const Text("未註冊");
+              }}
             )
           ]
         ),
         ElevatedButton(
-          child: Text("Scan"),
+          child: const Text("Scan"),
           onPressed: (){},
         ),
-        SizedBox(height: 20), 
+        const SizedBox(height: 20), 
       ]
     );
   }

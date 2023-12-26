@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
 
 
@@ -15,12 +13,12 @@ import './components/record_table.dart';
 
 
 class RecordPage extends StatelessWidget {
-  const RecordPage({Key? key}) : super(key: key);
+  const RecordPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("點名紀錄"),
+        title: const Text("點名紀錄"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
@@ -28,7 +26,7 @@ class RecordPage extends StatelessWidget {
         Column(
           children: [
             ElevatedButton(
-              child: Text(
+              child: const Text(
                 'Date Picker',
                 style: TextStyle(fontSize: 20.0, color: Colors.blue),
               ),
@@ -42,11 +40,11 @@ class RecordPage extends StatelessWidget {
               debugPrint(result.toString());
             },
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             TextFormField(
               decoration: InputDecoration(
                 isDense: true,
-                contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+                contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
                 border : OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(10.0)
@@ -58,12 +56,12 @@ class RecordPage extends StatelessWidget {
               
               },
             ),
-            SizedBox(height: 20,),
-            RecordTable(),
+            const SizedBox(height: 20,),
+            const RecordTable(),
           ],
         )
       ),
-      bottomNavigationBar: BottomNavComponent(
+      bottomNavigationBar: const BottomNavComponent(
         selectedIndex: 1, 
       ),
     );

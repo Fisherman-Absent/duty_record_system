@@ -8,8 +8,10 @@ import 'package:duty_record_system/database/employee_db.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
 
 class EmployeeInfoPage extends StatelessWidget {
+
   final Employee employee;
   EmployeeInfoPage(this.employee, {super.key}) {
+
     final registController = RegistController();
     Get.put(registController);
   }
@@ -18,16 +20,19 @@ class EmployeeInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Text('員工 - ${employee.name}'),
+
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
       body:CanScroll(
         Container(
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         child: Column(
           
           children: [
+
             Text('員工ID: ${employee.employeeId}'),
             SizedBox(height: 10,),
             Text('員工姓名: ${employee.name}'),
@@ -42,6 +47,7 @@ class EmployeeInfoPage extends StatelessWidget {
                   Navigator.pop(context);
                 });
               },
+
             ),
           ]),
       ),

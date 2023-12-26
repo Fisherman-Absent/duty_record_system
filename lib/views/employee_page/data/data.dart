@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../style/colors.dart';
-import '../../../controller/regist_controller.dart';
 
 
 
 
 class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
 
   
 

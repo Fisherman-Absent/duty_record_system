@@ -9,15 +9,16 @@ import 'package:duty_record_system/components/can_scroll.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
 
 class EmployeePage extends StatelessWidget {
-  const EmployeePage({Key? key}) : super(key: key);
+  const EmployeePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("員工資料"),
+        title: const Text("員工資料"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
+
       body:Container(
           margin: EdgeInsets.only(left: 10, right: 10),
           child: CanScroll(Column(
@@ -44,8 +45,8 @@ class EmployeePage extends StatelessWidget {
           ),
         )
       ),
-      floatingActionButton: RegistBtn(),
-      bottomNavigationBar: BottomNavComponent(
+      floatingActionButton: const RegistBtn(),
+      bottomNavigationBar: const BottomNavComponent(
         selectedIndex: 2, 
       ),
     );

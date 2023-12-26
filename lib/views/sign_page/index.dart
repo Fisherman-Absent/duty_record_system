@@ -10,7 +10,7 @@ import './components/employee_id_input.dart';
 import './components/name_input.dart';
 
 class SignPage extends StatelessWidget {
-  SignPage() {
+  SignPage({super.key}) {
     final signController = SignController();
     Get.put(signController);
   }
@@ -19,12 +19,12 @@ class SignPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("簽到"),
+        title: const Text("簽到"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
-      body:SignBody(),
-      bottomNavigationBar: BottomNavComponent(
+      body:const SignBody(),
+      bottomNavigationBar: const BottomNavComponent(
         selectedIndex: 0, 
       ),
     );
@@ -32,6 +32,8 @@ class SignPage extends StatelessWidget {
 }
 
 class SignBody extends StatelessWidget {
+  const SignBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +41,7 @@ class SignBody extends StatelessWidget {
         left: 40,
         right: 40,
       ),
-      child: Column(  
+      child: const Column(  
         children: [
           Expanded(
             flex: 20, 

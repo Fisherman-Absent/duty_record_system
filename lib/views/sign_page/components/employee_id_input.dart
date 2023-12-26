@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:duty_record_system/controller/sign_controller.dart';
 
 class EmployeeIdInput extends StatefulWidget {
+  const EmployeeIdInput({super.key});
+
   @override
   _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
 }
@@ -35,7 +37,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
         CupertinoTextField( 
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0), 
-            color: Color(0xFFC9C9C9),
+            color: const Color(0xFFC9C9C9),
           ), 
           onChanged: (value) {
             ctrl.employeeId.value = value;

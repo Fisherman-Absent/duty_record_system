@@ -7,6 +7,8 @@ import 'package:duty_record_system/controller/regist_controller.dart';
 
 
 class EmployeeIdInput extends StatefulWidget {
+  const EmployeeIdInput({super.key});
+
   @override
   _EmployeeIdInputState createState() => _EmployeeIdInputState(); 
   
@@ -38,7 +40,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
         TextFormField(
           decoration: InputDecoration(
             isDense: true,
-            contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+            contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
             border : OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(10.0)
@@ -50,7 +52,7 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
             ctrl.employeeId.value = value;
           },
         ),
-        SizedBox(height: 20,),
+        const SizedBox(height: 20,),
       ]
     );
   }

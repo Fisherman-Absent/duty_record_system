@@ -6,17 +6,28 @@ import '../../style/colors.dart';
 import '../../components/bottom_nav.dart';
 import './components/settings_list.dart';
 
+import 'dart:async';
+import 'package:pref/pref.dart';
+
+import '../../controller/theme_contorller.dart';
+
 class SettingPage extends StatefulWidget {
+  
 
   @override
   _SettingPageState createState() => _SettingPageState();
 }
 
 class _SettingPageState extends State<SettingPage> {
+  
   bool isSwitched = false;
 
   @override
 Widget build(BuildContext context) {
+
+  
+
+
   return Scaffold(
     appBar: AppBar(
         title: Text("設定"),
@@ -26,7 +37,7 @@ Widget build(BuildContext context) {
     body: Padding(
       padding: const EdgeInsets.only(top: 10),
       child: SafeArea(
-        child: SettingList(),
+        child: SettingList(PrefServiceCache()),
       ),
     ),
     bottomNavigationBar: BottomNavComponent(

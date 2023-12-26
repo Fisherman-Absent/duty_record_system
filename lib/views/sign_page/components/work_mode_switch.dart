@@ -5,6 +5,8 @@ import 'package:duty_record_system/style/colors.dart';
 import 'package:duty_record_system/controller/sign_controller.dart';
 
 class WorkModeSwitch extends StatefulWidget {
+  const WorkModeSwitch({super.key});
+
   @override
   _WorkModeSwitchState createState() => _WorkModeSwitchState(); 
 }
@@ -52,7 +54,7 @@ class WorkButton extends StatelessWidget {
   final bool filled;
   final VoidCallback onPressed;
   
-  const WorkButton({
+  const WorkButton({super.key, 
     required this.text,
     required this.icon,
     required this.side,
@@ -66,21 +68,21 @@ class WorkButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: filled ? workBtnOnColor : workBtnOffColor,
-        side: BorderSide(
+        side: const BorderSide(
           color: workBtnBorderColor, 
         ),
         shape: RoundedRectangleBorder(
           borderRadius: side == 'left'
-            ? BorderRadius.only(
+            ? const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 bottomLeft: Radius.circular(10)
               )
-            : BorderRadius.only(
+            : const BorderRadius.only(
                 topRight: Radius.circular(10), 
                 bottomRight: Radius.circular(10)
               )
         ),
-        minimumSize: Size(145, 50),
+        minimumSize: const Size(145, 50),
       ), 
       child: Row(
         children: [
@@ -89,10 +91,10 @@ class WorkButton extends StatelessWidget {
             color: Colors.black,
             size: 18,
           ),
-          SizedBox(width: 8), 
+          const SizedBox(width: 8), 
           Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,  
             ), 
           )
