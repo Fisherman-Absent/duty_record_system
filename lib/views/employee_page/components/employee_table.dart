@@ -72,7 +72,7 @@ class _EmployeeTableState extends State<EmployeeTable> {
                   padding: const EdgeInsets.only(left:20),
                   height: 60,
                   color: inputFillColor,
-                  child:const Row(
+                  child:Row(
                     children:[
                       Text(
                         employeeList[i].name,
