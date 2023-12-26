@@ -5,6 +5,8 @@ import 'package:duty_record_system/style/colors.dart';
 import 'package:duty_record_system/controller/regist_controller.dart';
 
 class PhoneNumberInput extends StatefulWidget {
+  const PhoneNumberInput({super.key});
+
   @override
   _PhoneNumberInputState createState() => _PhoneNumberInputState(); 
 }
@@ -35,7 +37,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
         TextFormField(
           decoration: InputDecoration(
             isDense: true,
-            contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 2),
+            contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
             border : OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(10.0)
@@ -47,7 +49,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
             ctrl.phoneNum.value = value;
           },
         ),
-        SizedBox(height: 20), 
+        const SizedBox(height: 20), 
       ]
     );
   }

@@ -23,7 +23,7 @@ Future<void> addEmployee(String employeeId, String name, String phoneNum) async 
 }
 
 class RegisterPage extends StatelessWidget {
-  RegisterPage() {
+  RegisterPage({super.key}) {
     final registController = RegistController();
     Get.put(registController);
     final ctrl = Get.find<RegistController>();
@@ -37,21 +37,21 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       key: key,
       appBar: AppBar(
-        title: Text("註冊資料"),
+        title: const Text("註冊資料"),
         backgroundColor: appBarBGColor,
         centerTitle: true,
       ),
       body:CanScroll(
         Container(
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         child: Column(
           
           children: [
-            EmployeeIdInput(),
-            NameInput(),
-            FaceRegist(),
-            PhoneNumberInput(),
-            SizedBox(height: 50,),
+            const EmployeeIdInput(),
+            const NameInput(),
+            const FaceRegist(),
+            const PhoneNumberInput(),
+            const SizedBox(height: 50,),
             ElevatedButton(
               child: Text("註冊"),
               onPressed: (){

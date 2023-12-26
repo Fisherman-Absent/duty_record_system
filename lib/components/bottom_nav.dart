@@ -5,6 +5,9 @@ import 'package:duty_record_system/views/record_page/index.dart';
 import 'package:duty_record_system/views/employee_page/index.dart';
 import 'package:duty_record_system/views/setting_page/index.dart';
 
+
+import 'package:pref/pref.dart';
+
 void handleNavTap(int index, BuildContext context) {
   if(index == 0){
     //Navigator.of(context).pushReplacementNamed('/sign');
@@ -12,7 +15,7 @@ void handleNavTap(int index, BuildContext context) {
       context,
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => SignPage(),  
-        transitionDuration: Duration(milliseconds: 0),
+        transitionDuration: const Duration(milliseconds: 0),
       ),  
     );
   }
@@ -21,8 +24,8 @@ void handleNavTap(int index, BuildContext context) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => RecordPage(),  
-        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, animation, secondaryAnimation) => const RecordPage(),  
+        transitionDuration: const Duration(milliseconds: 0),
       ),  
     );
   }
@@ -31,8 +34,8 @@ void handleNavTap(int index, BuildContext context) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => EmployeePage(),  
-        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, animation, secondaryAnimation) => const EmployeePage(),  
+        transitionDuration: const Duration(milliseconds: 0),
       ),  
     );
   }
@@ -41,8 +44,8 @@ void handleNavTap(int index, BuildContext context) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => SettingPage(),  
-        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, animation, secondaryAnimation) =>  SettingPage(),  
+        transitionDuration: const Duration(milliseconds: 0),
       ),  
     );
   }
@@ -52,7 +55,7 @@ class BottomNavComponent extends StatelessWidget {
 
   final int selectedIndex;
 
-  BottomNavComponent({
+  const BottomNavComponent({super.key, 
     required this.selectedIndex, 
   });
 
@@ -62,7 +65,7 @@ class BottomNavComponent extends StatelessWidget {
       onTap: (index) => handleNavTap(index, context),  
       currentIndex: selectedIndex,
       type: BottomNavigationBarType.fixed,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.assignment_turned_in),
           label: '簽到' 
@@ -86,14 +89,16 @@ class BottomNavComponent extends StatelessWidget {
 
 
 class NewRoute extends StatelessWidget {
+  const NewRoute({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("New Route"),
+        title: const Text("New Route"),
       ),
-      body: Center(
+      body: const Center(
         child: Text("This is new route page"),  
       ),
     );

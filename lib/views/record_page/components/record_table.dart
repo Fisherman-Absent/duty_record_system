@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../style/colors.dart';
-import '../../../controller/regist_controller.dart';
 
 
 class RecordTable extends StatefulWidget {
@@ -40,17 +38,17 @@ class _RecordTableState extends State<RecordTable> {
                 Container(
                   height: 60,
                   color: inputFillColor,
-                  child: new Icon(
+                  child: const Icon(
                     Icons.person,  
                     color: Colors.green,
                     size: 30,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left:20),
+                  padding: const EdgeInsets.only(left:20),
                   height: 60,
                   color: inputFillColor,
-                  child:Row(
+                  child:const Row(
                     children:[
                       Text(
                         '645',

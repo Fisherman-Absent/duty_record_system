@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:duty_record_system/controller/sign_controller.dart';
 
 class NameInput extends StatefulWidget {
+  const NameInput({super.key});
+
   @override
   _NameInputState createState() => _NameInputState(); 
 }
@@ -35,7 +37,7 @@ class _NameInputState extends State<NameInput> {
         CupertinoTextField( 
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0), 
-            color: Color(0xFFC9C9C9),
+            color: const Color(0xFFC9C9C9),
           ), 
           onChanged: (value) {
             ctrl.name.value = value;

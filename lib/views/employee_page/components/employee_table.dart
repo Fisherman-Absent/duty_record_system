@@ -2,14 +2,13 @@ import 'dart:developer';
 
 import 'package:duty_record_system/views/employee_page/employee_info_page/index.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../style/colors.dart';
-import '../../../controller/regist_controller.dart';
 
 import 'package:duty_record_system/views/employee_page/register_page/index.dart';
 import 'package:duty_record_system/database/employee_db.dart';
 import 'package:duty_record_system/controller/event_bus.dart';
+
 
 class EmployeeTable extends StatefulWidget {
   const EmployeeTable({super.key});
@@ -62,7 +61,7 @@ class _EmployeeTableState extends State<EmployeeTable> {
               Container(
                 height: 60,
                 color: inputFillColor,
-                child: new Icon(
+                child: const Icon(
                   Icons.person,  
                   color: Colors.green,
                   size: 30,
@@ -70,10 +69,10 @@ class _EmployeeTableState extends State<EmployeeTable> {
               ),
               TableRowInkWell(
                 child:Container(
-                  padding: EdgeInsets.only(left:20),
+                  padding: const EdgeInsets.only(left:20),
                   height: 60,
                   color: inputFillColor,
-                  child:Row(
+                  child:const Row(
                     children:[
                       Text(
                         employeeList[i].name,
@@ -99,8 +98,10 @@ class _EmployeeTableState extends State<EmployeeTable> {
                 onTap: (){
                   Navigator.push(context,
                     PageRouteBuilder(
+
                       pageBuilder: (context, animation, secondaryAnimation) =>EmployeeInfoPage(employeeList[i]),  
                       transitionDuration: Duration(milliseconds: 0),
+
                     )
                   );
                 },

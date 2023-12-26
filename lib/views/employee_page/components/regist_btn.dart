@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:duty_record_system/views/employee_page/register_page/index.dart';
 
 class RegistBtn extends StatefulWidget {
+  const RegistBtn({super.key});
+
   @override
   State<RegistBtn> createState() => _RegistBtnState();
 }
@@ -15,7 +17,7 @@ class _RegistBtnState extends State<RegistBtn> {
           Navigator.push(context,
             PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>RegisterPage(),  
-            transitionDuration: Duration(milliseconds: 0),
+            transitionDuration: const Duration(milliseconds: 0),
             ),  
           );
         },
