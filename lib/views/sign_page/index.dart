@@ -76,10 +76,10 @@ class SignBody extends StatelessWidget {
               flex: 5,
               child: NameInput(),
             ),
-            //Expanded(
-              //flex: 20,
-             // child: CameraScan(),
-            //),
+            Expanded(
+              flex: 20,
+             child: CameraScan(),
+            ),
             ElevatedButton(
               child: const Text("打卡"),
               onPressed: () async {
