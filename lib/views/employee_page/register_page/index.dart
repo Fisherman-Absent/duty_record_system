@@ -54,9 +54,10 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(height: 50,),
             ElevatedButton(
               child: Text("註冊"),
-              onPressed: (){
+              onPressed: () async {
                 final ctrl = Get.find<RegistController>();
                 debugPrint('employee: ${ctrl.employeeId.value}\nname: ${ctrl.name.value}\nphoneNum: ${ctrl.phoneNum.value}\n\n');
+                EmployeeInfo employeeInfo = await EmployeeDB.isEmployeeIdExists(ctrl.employeeId.value);
                 if(ctrl.employeeId.value == ''){
                   Fluttertoast.showToast(
                     msg: "員工ID不可為空",
@@ -79,9 +80,29 @@ class RegisterPage extends StatelessWidget {
                     fontSize: 16.0
                   );
                 }
+                else if(employeeInfo.exists){
+                  Fluttertoast.showToast(
+                    msg: "此員工已存在",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 3,
+                    backgroundColor: Colors.black45,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                  );
+                }
                 else{
                   addEmployee(ctrl.employeeId.value, ctrl.name.value, ctrl.phoneNum.value).then((result) {
                     eventBus.fire(DBEvent('Reload Table', ''));
+                    Fluttertoast.showToast(
+                      msg: "員工註冊成功",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 3,
+                      backgroundColor: Colors.black45,
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                    );
                     Navigator.pop(context);
                   });
                 }

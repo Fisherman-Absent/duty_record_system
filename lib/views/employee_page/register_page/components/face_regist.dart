@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:duty_record_system/controller/regist_controller.dart';
+import 'package:duty_record_system/views/employee_page/register_page/camera_page/index.dart';
 
 class FaceRegist extends StatefulWidget {
   const FaceRegist({super.key});
@@ -47,7 +48,14 @@ class _FaceRegistState extends State<FaceRegist> {
         ),
         ElevatedButton(
           child: const Text("Scan"),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) => RegistCameraPage(),  
+                transitionDuration: const Duration(milliseconds: 0),
+              ),  
+            );
+          },
         ),
         const SizedBox(height: 20), 
       ]
