@@ -23,6 +23,7 @@ class RecordPage extends StatefulWidget {
 
 class _RecordPageState extends State<RecordPage> {
   DateTime selecteDate = DateTime.now();
+  String selectWord = "選擇日期";
 
   final firstDate = DateTime(2020, 01);
   final lastDate  = DateTime(2030, 12);
@@ -62,7 +63,7 @@ class _RecordPageState extends State<RecordPage> {
 
             ElevatedButton(
               child: Text(
-                '$selecteDate'.split(' ')[0],
+                selectWord,
                 style: TextStyle(fontSize: 20.0, color: Color.fromARGB(255, 235, 129, 9)),
               ),
               onPressed:() => _openDatePicker(context),
@@ -92,6 +93,7 @@ class _RecordPageState extends State<RecordPage> {
     if(date != null){   // no change date
       setState(() {
         selecteDate = date;
+        selectWord = '$selecteDate'.split(' ')[0];
       });  
     }
 

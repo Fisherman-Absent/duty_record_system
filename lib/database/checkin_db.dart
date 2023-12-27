@@ -32,7 +32,7 @@ class CheckInDB {
     String path = await getDatabasesPath();
 
     return openDatabase(
-      join(path, 'fisherman_2.db'),
+      join(path, 'fisherman_220.db'),
       onCreate: (database, version) async {
         await database.execute("CREATE TABLE checkIn(id INTEGER PRIMARY KEY AUTOINCREMENT, onWork INTEGER, employeeId TEXT, name TEXT, time Text)");
       },

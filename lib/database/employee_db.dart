@@ -28,7 +28,7 @@ class EmployeeDB {
     String path = await getDatabasesPath();
     
     return openDatabase(
-      join(path, 'fisherman.db'),
+      join(path, 'fisherman110.db'),
       onCreate: (database, version) async {
          await database.execute( 
            "CREATE TABLE employees(id INTEGER PRIMARY KEY AUTOINCREMENT, employeeId TEXT, name TEXT, phoneNum TEXT)",

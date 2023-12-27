@@ -116,6 +116,7 @@ class SignBody extends StatelessWidget {
                     name: ctrl.name.value,
                     time: formattedTime,
                   );
+                  debugPrint('date: $formattedTime');
                   await CheckInDB.addCheckIn(newCheckIn);
                   ctrl.employeeId.value = "";
                   ctrl.name.value ="";
