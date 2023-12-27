@@ -7,3 +7,8 @@ class DBEvent {
   String keyword;
   DBEvent(this.eventName, this.keyword);
 }
+
+class ClearEvent {
+  String eventName;
+  ClearEvent(this.eventName);
+}

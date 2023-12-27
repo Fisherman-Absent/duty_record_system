@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:duty_record_system/style/colors.dart';
 import 'package:duty_record_system/controller/sign_controller.dart';
+import 'package:duty_record_system/controller/event_bus.dart';
 
 class EmployeeIdInput extends StatefulWidget {
   const EmployeeIdInput({super.key});
@@ -19,11 +21,17 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
   void initState() {
     super.initState();
     // 設定初始值
-    _textEditingController.text = ctrl.employeeId.value;
+    _textEditingController.text = "";
   }
 
   @override
   Widget build(BuildContext context) {
+    eventBus.on<ClearEvent>().listen((event) {
+      if(event.eventName == 'ClearSign'){
+        _textEditingController.clear();
+        setState(() {});
+      }
+    });
     return Column(
         children: [
           const Row(
@@ -42,21 +50,22 @@ class _EmployeeIdInputState extends State<EmployeeIdInput> {
               )
             ],
           ),
-          Obx(() {
-            // 更新文本控制器的值
-            _textEditingController.text = ctrl.employeeId.value;
-
-            return CupertinoTextField(
-              controller: _textEditingController,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Color(0xFFC9C9C9),
+          TextFormField(
+            controller: _textEditingController,
+            decoration: InputDecoration(
+              isDense: true,
+              contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 2),
+              border : OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10.0)
               ),
-              onChanged: (value) {
-                ctrl.employeeId.value = value;
-              },
-            );
-          }),
+              fillColor: inputFillColor,
+              filled: true,
+            ),
+            onChanged: (value) {
+              ctrl.employeeId.value = value;
+            },
+          ),
         ]
     );
   }

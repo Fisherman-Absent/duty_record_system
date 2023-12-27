@@ -86,6 +86,7 @@ class SignBody extends StatelessWidget {
                 final ctrl = Get.find<SignController>();
                 String formattedTime = DateTime.now().toIso8601String();
                 EmployeeInfo employeeInfo = await EmployeeDB.isEmployeeIdExists(ctrl.employeeId.value);
+                debugPrint('Employee value:${ctrl.employeeId.value}');
                 if(ctrl.employeeId.value==""){
                   debugPrint("no value");
                   Fluttertoast.showToast(
@@ -118,6 +119,7 @@ class SignBody extends StatelessWidget {
                   await CheckInDB.addCheckIn(newCheckIn);
                   ctrl.employeeId.value = "";
                   ctrl.name.value ="";
+                  eventBus.fire(ClearEvent('ClearSign'));
                 }
               },
                 
