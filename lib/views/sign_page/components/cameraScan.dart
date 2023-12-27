@@ -23,7 +23,7 @@ class CameraScanState extends State<CameraScan> {
     // 初始化相機
     WidgetsFlutterBinding.ensureInitialized();
     availableCameras().then((cameras) {
-      CameraDescription firstCamera = cameras[1];
+      CameraDescription firstCamera = cameras.last;
 
       // 創建相機控制器
       _controller = CameraController(
