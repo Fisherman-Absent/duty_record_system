@@ -16,6 +16,12 @@ class Employee {
     };
   }
 }
+class EmployeeInfo {
+  final bool exists;
+  final String? name;
+
+  EmployeeInfo(this.exists, this.name);
+}
 
 class EmployeeDB {
   static Future<Database> getDBConnect() async {
@@ -78,4 +84,23 @@ class EmployeeDB {
       "DROP TABLE employees",
     );
   }
+
+
+  static Future<EmployeeInfo> isEmployeeIdExists(String employeeId) async {
+    final Database db = await getDBConnect();
+    final List<Map<String, dynamic>> result = await db.query(
+      'employees',
+      where: 'employeeId = ?',
+      whereArgs: [employeeId],
+    );
+    if(result.isNotEmpty){
+      return EmployeeInfo(true, result.first['name']);
+    }
+    else{
+      return EmployeeInfo(false, null);
+    }
+
+  }
+
+
 }
